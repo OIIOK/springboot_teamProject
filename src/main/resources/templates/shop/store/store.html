@@ -4,16 +4,25 @@
    <th:block th:replace="/shop/inc/head.html"/> 
 	<style>
 	.box-style{
-		width: 200px;
+		width: 220px;
 		height: 200px;
-		border: 1px solid #ccc;
 		display:inline-block;
-		margin: auto;
 		text-align: right;
+		position:relative;
 	}
 	.box-style img{
 		width: 200px;
 		height: 200px;
+		border-radius: 5px;
+		position: absolute;
+		left: 10px;
+	}
+	.box-style span{
+		position: absolute;
+		top:10px;
+		left:185px;
+		font-size: 22px;
+    	font-weight: 500;
 	}
 	</style>
    </head>
@@ -41,170 +50,187 @@
     </header>
 
     <main>   
-	<div class="col-12 grid-margin">
-	<div class="card">
-		<div class="card-body">
-			<form name="form1">
+	<div class="container">
+		<form name="form1">
+		
+			<div class="row m-3">
+				<div class="col-md-12">
+					<div class="row form-group">
+						<strong class="col-sm-3 col-form-label">구분</strong>
+						<div class="col-sm-2">
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="radio" class="form-check-input" name="business_type" value="개인사업자">개인사업자
+								</label>
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="radio" class="form-check-input" name="business_type" value="법인사업자">법인사업자
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			
-				<h5>입점업체 문의</h5>
-				
-				<div class="row m-3">
-					<div class="col-md-12">
-						<div class="row form-group">
-							<label class="col-sm-3 col-form-label">구분</label>
-							<div class="col-sm-2">
-								<div class="form-check">
-									<label class="form-check-label">
-										<input type="radio" class="form-check-input" name="business_type" value="개인사업자">개인사업자
-									</label>
-								</div>
-							</div>
-							<div class="col-sm-2">
-								<div class="form-check">
-									<label class="form-check-label">
-										<input type="radio" class="form-check-input" name="business_type" value="법인사업자">법인사업자
-									</label>
-								</div>
-							</div>
+			<div class="row m-3">
+				<div class="col-md-12">
+					<div class="row form-group">
+						<strong class="col-sm-3 col-form-label">업체명</strong>
+						<div class="col-sm-9">
+							<input type="text" class="t_input" name="store_name" placeholder="업체명 입력">
 						</div>
 					</div>
 				</div>
-				
-				<div class="row m-3">
-					<div class="col-md-12">
-						<div class="row form-group">
-							<label class="col-sm-3 col-form-label">업체명</label>
-							<div class="col-sm-9">
-								<input type="text" class="form-control" name="store_name" placeholder="업체명 입력">
-							</div>
+			</div>
+			
+			<div class="row m-3">
+				<div class="col-md-12">
+					<div class="row form-group">
+						<strong class="col-sm-3 col-form-label">사업자 등록번호</strong>
+						<div class="col-sm-6">
+							<input type="number" class="t_input" name="business_number" placeholder="-없이 숫자만 입력">
 						</div>
+						<button type="button" class="btn_5" id="bt_regist">확인</button>
 					</div>
 				</div>
-				
-				<div class="row m-3">
-					<div class="col-md-12">
-						<div class="row form-group">
-							<label class="col-sm-3 col-form-label">사업자 등록번호</label>
-							<div class="col-sm-8">
-								<input type="number" class="form-control" name="business_number" placeholder="-없이 숫자만 입력">
-							</div>
-							<div class="col-sm-1">
-								<button type="button" class="genric-btn primary radius" id="bt_regist">확인</button>
-							</div>
+			</div>
+			
+			<div class="row m-3">
+				<div class="col-md-12">
+					<div class="row form-group">
+						<strong class="col-sm-3 col-form-label">소재지</strong>
+						<div class="col-sm-6">
+							<input type="text" class="t_input" name="postcode" placeholder="우편번호">
+						</div>
+						<button type="button" class="btn_5" id="search_address">우편번호 찾기</button>
+					</div>
+					<div class="row form-group">
+					<label class="col-sm-3 col-form-label"></label>
+						<div class="col-sm-9">
+							<input type="text" class="t_input" name="store_sido" placeholder="주소">
 						</div>
 					</div>
-				</div>
-				
-				<div class="row m-3">
-					<div class="col-md-12">
-						<div class="row form-group">
-							<label class="col-sm-3 col-form-label">소재지</label>
-							<div class="col-sm-6">
-								<input type="text" class="form-control" name="postcode" placeholder="우편번호">
-							</div>
-							<div class="col-sm-3">
-								<button type="button" class="genric-btn primary radius" id="search_address">우편번호 찾기</button>
-							</div>
+					<div class="row form-group">
+					<label class="col-sm-3 col-form-label"></label>
+						<div class="col-sm-9">
+							<input type="text" class="t_input" name="store_addr" placeholder="상세주소">
 						</div>
-						<div class="row form-group">
-						<label class="col-sm-3 col-form-label"></label>
-							<div class="col-sm-9">
-								<input type="text" class="form-control" name="store_sido" placeholder="주소">
-							</div>
-						</div>
-						<div class="row form-group">
-						<label class="col-sm-3 col-form-label"></label>
-							<div class="col-sm-9">
-								<input type="text" class="form-control" name="store_addr" placeholder="상세주소">
-							</div>
-						</div>	
-					</div>
+					</div>	
 				</div>
-				
-				<div class="row m-3">
-					<div class="col-md-12">
-						<div class="row form-group">
-							<label class="col-sm-3 col-form-label">상품문의 연락처</label>
-							<div class="col-sm-9">
-								<input type="number" class="form-control" name="store_phone" placeholder="-없이 숫자만 입력">
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="row m-3">
-					<div class="col-md-12">
-						<div class="row form-group">
-							<label class="col-sm-3 col-form-label">담담자 연락처</label>
-							<div class="col-sm-9">
-								<input type="number" class="form-control" name="manager_mobile" placeholder="-없이 숫자만 입력">
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="row m-3">
-					<div class="col-md-12">
-						<div class="row form-group">
-							<label class="col-sm-3 col-form-label">담담자명</label>
-							<div class="col-sm-9">
-								<input type="text" class="form-control " name="manager_name" placeholder="담당자명 입력">
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="row m-3">
-					<div class="col-md-12">
-						<div class="row form-group">
-							<label class="col-sm-3 col-form-label">담담자 이메일</label>
-							<div class="col-sm-3">
-								<input type=text class="form-control" name="email_id">
-							</div>
-							<label>@</label>
-							<div class="col-sm-3">
-								<input type=text class="form-control" name="email_domain">
-							</div>
-							<select id="email_select">
-								<option value="">직접입력</option>
-								<option value="naver.com">naver.com</option>
-								<option value="daum.net">daum.net</option>
-								<option value="nate.com">nate.com</option>
-								<option value="gmail.com">gmail.com</option>
+			</div>
+			
+			<div class="row m-3">
+				<div class="col-md-12">
+					<div class="row form-group">
+						<strong class="col-sm-3 col-form-label">상품문의 연락처</strong>
+						<div class="col-sm-1">
+							<select name="store_phone1" class="select_a">
+							<option value="">선택</option>
+								<option value="010">010</option>
+								<option value="011">011</option>
+								<option value="019">019</option>
+								<option value="017">017</option>
+								<option value="018">018</option>
+								<option value="016">016</option>
 							</select>
 						</div>
+						<div class="col-sm-2">
+							<input type="text" class="t_input" name="store_phone2">
+						</div>
+						<div class="col-sm-2">
+							<input type="text" class="t_input" name="store_phone3">
+						</div>
 					</div>
 				</div>
+			</div>
+			
+			<div class="row m-3">
+				<div class="col-md-12">
+					<div class="row form-group">
+						<strong class="col-sm-3 col-form-label">담당자 연락처</strong>
+						<div class="col-sm-1">
+							<select name="manager_mobile1" class="select_a">
+							<option value="">선택</option>
+								<option value="010">010</option>
+								<option value="011">011</option>
+								<option value="019">019</option>
+								<option value="017">017</option>
+								<option value="018">018</option>
+								<option value="016">016</option>
+							</select>
+						</div>
+						<div class="col-sm-2">
+							<input type="text" class="t_input" name="manager_mobile2">
+						</div>
+						<div class="col-sm-2">
+							<input type="text" class="t_input" name="manager_mobile3">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row m-3">
+				<div class="col-md-12">
+					<div class="row form-group">
+						<strong class="col-sm-3 col-form-label">담담자명</strong>
+						<div class="col-sm-9">
+							<input type="text" class="t_input" name="manager_name" placeholder="담당자명 입력">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row m-3">
+				<div class="col-md-12">
+					<div class="row form-group">
+						<strong class="col-sm-3 col-form-label">담담자 이메일</strong>
+						<div class="col-sm-3">
+							<input type=text class="t_input" name="email_id">
+						</div>
+						<label>@</label>
+						<div class="col-sm-3">
+							<input type=text class="t_input" name="email_domain">
+						</div>
+						<select id="email_select" class="select_a">
+							<option value="">직접입력</option>
+							<option value="naver.com">naver.com</option>
+							<option value="daum.net">daum.net</option>
+							<option value="nate.com">nate.com</option>
+							<option value="gmail.com">gmail.com</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row m-3">
+				<div class="col-md-12">
+					<div class="row form-group">
+						<strong class="col-sm-3 col-form-label">인증서 첨부</strong>
+						<div class="col-sm-9">
+							<input type=file class="t_input" name="certification" multiple>
+						</div>
+					</div>
+				</div>
+			</div>
 				
-				<div class="row m-3">
-					<div class="col-md-12">
-						<div class="row form-group">
-							<label class="col-sm-3 col-form-label">인증서 첨부</label>
-							<div class="col-sm-9">
-								<input type=file class="form-control" name="certification" multiple>
-							</div>
+			<div class="row m-3" id="app1">
+				<div class="col-md-12" >
+					<div class="row form-group">
+						<strong class="col-sm-3 col-form-label">미리보기</strong>
+						<div class="col-sm-9">
+							<template v-for="json in imgList">
+								<imgbox :key="json.key" :obj="json" :idx="json.key"/>
+							</template>
 						</div>
 					</div>
 				</div>
+			</div>
 					
-				<div class="row m-3" id="app1">
-					<div class="col-md-12" >
-						<div class="row form-group">
-							<label class="col-sm-3 col-form-label">미리보기</label>
-							<div class="col-sm-9">
-								<template v-for="i in count">
-									<imgbox/>
-								</template>
-							</div>
-						</div>
-					</div>
-				</div>
-					
-				</form>
-			</div>	
-		</div>
+		</form>
 	</div>
-		
 	    
     <footer>
 	<th:block th:replace="/shop/inc/footer.html"/>
@@ -218,14 +244,34 @@
  	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
 	<script>
 	let app1;
+	let key=0;
 	
 	const imgbox={
 		template:`
 		<div class="box-style">
-			<div>X</div>
-			<img>
+			<img :src="json.binary">
+			<span><a @click="delImg(p_idx)" href="javascript:return false;" style="color:black">X</a></span>
 		</div>
-		`
+		`,
+		props:['obj', 'idx'],
+		data(){
+			return{
+				json:this.obj,
+				p_idx:this.idx  //key 값
+			}
+		},
+		methods:{
+			delImg:function(idx){
+				//alert("삭제할 이미지의 고유 idx는 "+idx);
+				
+				for(let i=0; i<app1.imgList.length; i++){
+					let json=app1.imgList[i];
+					if(json.key==idx){
+						app1.imgList.splice(i, 1);
+					}
+				}
+			}
+		}
 	};
 	
 	app1=new Vue({
@@ -234,10 +280,58 @@
 			imgbox
 		},
 		data:{
-			count:5
+			count:5,
+			imgList:[]
 		}
 	});
 	
+	/*------------------------------------------
+		중복 이미지 체크
+	------------------------------------------*/
+	function checkDuplicate(filename){
+		let count=0;
+		
+		for(let i=0; i<app1.imgList.length; i++){
+			let json=app1.imgList[i];
+			if(json.name==filename){  //중복 발견
+				count++;
+				console.log("count is", count);
+				break;
+			}
+		}
+		return count;
+	}
+	
+	/*------------------------------------------
+		이미지 미리보기 구현
+	------------------------------------------*/
+	function preview(files){
+		for(let i=0; i<files.length; i++){
+			let file=files[i];
+			
+			if(checkDuplicate(file.name)<1){  //중복된 파일이 없을 경우 파일을 읽음
+				let reader=new FileReader();
+				reader.onload=(e)=>{
+					//console.log(e);
+					//console.log("이미지를 이루고 있는 데이터", e.target.result);
+					
+					key++;
+					
+					let json=[];
+					
+					json['key']=key;
+					json['name']=file.name;
+					json['binary']=e.target.result;
+					json['file']=file;
+					
+					console.log("json is ", json);
+					app1.imgList.push(json);  //이미지 배열에 json 넣기
+					
+				};
+				reader.readAsDataURL(file);  //파일 읽기
+			}
+		}
+	}
 	
 	/*------------------------------------------
 		kakao 우편번호 조회 api
@@ -272,6 +366,12 @@
 		 $( "#email_select" ).change(function(){
 	            $("input[name='email_domain']").val( $("#email_select").val() );
 	        });
+		
+		//파일 선택
+		$("input[name='certification']").change(function(){
+			//console.log(this.files);
+			preview(this.files);
+		});
 	});
 	
     </script>
