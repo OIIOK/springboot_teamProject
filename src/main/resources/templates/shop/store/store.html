@@ -1,0 +1,278 @@
+<!doctype html>
+<html class="no-js" lang="zxx" xmlns="http://www.thymeleaf.org">
+   <head>
+   <th:block th:replace="/shop/inc/head.html"/> 
+	<style>
+	.box-style{
+		width: 200px;
+		height: 200px;
+		border: 1px solid #ccc;
+		display:inline-block;
+		margin: auto;
+		text-align: right;
+	}
+	.box-style img{
+		width: 200px;
+		height: 200px;
+	}
+	</style>
+   </head>
+	
+   <body>
+    <!-- Preloader Start -->
+    <th:block th:replace="/shop/inc/preloader.html"/>
+    <!-- Preloader Start -->
+
+    <header>
+        <!-- Header Start -->
+       <div class="header-area">
+            <div class="main-header ">
+            	<!-- top 링크 Start -->
+            	<th:block th:replace="/shop/inc/top_link.html"/>
+                <!-- top 링크 End -->
+                
+                <!-- 메인 Navi Start -->
+                <th:block th:replace="/shop/inc/main_navi.html"/>
+            	<!-- 메인 Navi End -->
+            	
+            </div>
+       </div>
+        <!-- Header End -->
+    </header>
+
+    <main>   
+	<div class="col-12 grid-margin">
+	<div class="card">
+		<div class="card-body">
+			<form name="form1">
+			
+				<h5>입점업체 문의</h5>
+				
+				<div class="row m-3">
+					<div class="col-md-12">
+						<div class="row form-group">
+							<label class="col-sm-3 col-form-label">구분</label>
+							<div class="col-sm-2">
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="radio" class="form-check-input" name="business_type" value="개인사업자">개인사업자
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="radio" class="form-check-input" name="business_type" value="법인사업자">법인사업자
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row m-3">
+					<div class="col-md-12">
+						<div class="row form-group">
+							<label class="col-sm-3 col-form-label">업체명</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" name="store_name" placeholder="업체명 입력">
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row m-3">
+					<div class="col-md-12">
+						<div class="row form-group">
+							<label class="col-sm-3 col-form-label">사업자 등록번호</label>
+							<div class="col-sm-8">
+								<input type="number" class="form-control" name="business_number" placeholder="-없이 숫자만 입력">
+							</div>
+							<div class="col-sm-1">
+								<button type="button" class="genric-btn primary radius" id="bt_regist">확인</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row m-3">
+					<div class="col-md-12">
+						<div class="row form-group">
+							<label class="col-sm-3 col-form-label">소재지</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" name="postcode" placeholder="우편번호">
+							</div>
+							<div class="col-sm-3">
+								<button type="button" class="genric-btn primary radius" id="search_address">우편번호 찾기</button>
+							</div>
+						</div>
+						<div class="row form-group">
+						<label class="col-sm-3 col-form-label"></label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" name="store_sido" placeholder="주소">
+							</div>
+						</div>
+						<div class="row form-group">
+						<label class="col-sm-3 col-form-label"></label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" name="store_addr" placeholder="상세주소">
+							</div>
+						</div>	
+					</div>
+				</div>
+				
+				<div class="row m-3">
+					<div class="col-md-12">
+						<div class="row form-group">
+							<label class="col-sm-3 col-form-label">상품문의 연락처</label>
+							<div class="col-sm-9">
+								<input type="number" class="form-control" name="store_phone" placeholder="-없이 숫자만 입력">
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row m-3">
+					<div class="col-md-12">
+						<div class="row form-group">
+							<label class="col-sm-3 col-form-label">담담자 연락처</label>
+							<div class="col-sm-9">
+								<input type="number" class="form-control" name="manager_mobile" placeholder="-없이 숫자만 입력">
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row m-3">
+					<div class="col-md-12">
+						<div class="row form-group">
+							<label class="col-sm-3 col-form-label">담담자명</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control " name="manager_name" placeholder="담당자명 입력">
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row m-3">
+					<div class="col-md-12">
+						<div class="row form-group">
+							<label class="col-sm-3 col-form-label">담담자 이메일</label>
+							<div class="col-sm-3">
+								<input type=text class="form-control" name="email_id">
+							</div>
+							<label>@</label>
+							<div class="col-sm-3">
+								<input type=text class="form-control" name="email_domain">
+							</div>
+							<select id="email_select">
+								<option value="">직접입력</option>
+								<option value="naver.com">naver.com</option>
+								<option value="daum.net">daum.net</option>
+								<option value="nate.com">nate.com</option>
+								<option value="gmail.com">gmail.com</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row m-3">
+					<div class="col-md-12">
+						<div class="row form-group">
+							<label class="col-sm-3 col-form-label">인증서 첨부</label>
+							<div class="col-sm-9">
+								<input type=file class="form-control" name="certification" multiple>
+							</div>
+						</div>
+					</div>
+				</div>
+					
+				<div class="row m-3" id="app1">
+					<div class="col-md-12" >
+						<div class="row form-group">
+							<label class="col-sm-3 col-form-label">미리보기</label>
+							<div class="col-sm-9">
+								<template v-for="i in count">
+									<imgbox/>
+								</template>
+							</div>
+						</div>
+					</div>
+				</div>
+					
+				</form>
+			</div>	
+		</div>
+	</div>
+		
+	    
+    <footer>
+	<th:block th:replace="/shop/inc/footer.html"/>
+   </footer>
+   
+	<!-- JS here -->
+	<th:block th:replace="/shop/inc/footer_link.html"/>		
+	        
+    </body>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+ 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+	<script>
+	let app1;
+	
+	const imgbox={
+		template:`
+		<div class="box-style">
+			<div>X</div>
+			<img>
+		</div>
+		`
+	};
+	
+	app1=new Vue({
+		el:"#app1",
+		components:{
+			imgbox
+		},
+		data:{
+			count:5
+		}
+	});
+	
+	
+	/*------------------------------------------
+		kakao 우편번호 조회 api
+	------------------------------------------*/
+	function openPostcode(){
+		new daum.Postcode({
+	        oncomplete: function(data) { //선택시 입력값 세팅
+	        	let addr = ''; // 주소 변수
+	        	
+	        	//사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+	            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+	                addr = data.roadAddress;
+	            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+	                addr = data.jibunAddress;
+	            }
+	        	// 우편번호와 주소 정보를 해당 필드에 넣는다.
+	        	$("input[name='postcode']").val(data.zonecode);
+	        	$("input[name='store_sido']").val(addr);
+	            // 커서를 상세주소 필드로 이동한다.
+	            $("input[name='store_addr']").focus();
+	        }
+	    }).open();
+	}
+	
+	$(function(){
+		//우편주소 찾기 
+		$("#search_address").click(function(){
+			openPostcode();
+		});
+		
+		//이메일 직접입력
+		 $( "#email_select" ).change(function(){
+	            $("input[name='email_domain']").val( $("#email_select").val() );
+	        });
+	});
+	
+    </script>
+</html>
