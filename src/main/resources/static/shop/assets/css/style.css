@@ -13046,9 +13046,9 @@ input:focus {
   font-weight: 500;
   height: 58px;
   border-radius: 5px;
+  width: 100%;
 }
 
-/* line 189, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_elements.scss */
 .btn_5:hover {
   color: #222222;
   border: 1px solid #222222;
